@@ -1,6 +1,7 @@
 .idea/
 .DS_Store
-deployment/app_src/my_p3
+deployment/app_src/covid_testing
 app_src/src/out.csv
-deployment/app_src/output/out-*.csv
+app_src/src/__pycache__
+#deployment/app_src/output/out-*.csv
 notebooks/.ipynb_checkpoints/*.ipynb

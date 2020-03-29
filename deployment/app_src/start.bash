@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-python3 -m venv my_p3
+cd deployment/app_src
 
-source my_p3/bin/activate
+python3 -m venv covid_testing
+
+source covid_testing/bin/activate
 
 pip install -r requirements.txt
 
+python src/app.py 

@@ -4,6 +4,7 @@ import datetime as dt
 # configs:
 
 # this is the directory in which the daily data files are locations from Johns Hopkins
+# where the COVID-19 directory is the Johns Hopkins University repo base...
 daily_data_dir = '/Users/robrobinson/develop/COVID-19/csse_covid_19_data/csse_covid_19_daily_reports/'
 
 # where to place our output csvs
@@ -20,6 +21,9 @@ all_dates = pd.date_range(start="2020-03-10", end=dt.datetime.today()).to_pydate
 
 # initial load of just states
 all_data = pd.read_csv(local_data_dir + 'us_states.csv')
+
+# this will only be for the file saving process... default to March 1...
+last_available_date = '2020-03-01'
 
 for date in all_dates:
 
@@ -41,6 +45,9 @@ for date in all_dates:
         else:
             df = pd.read_csv(daily_csv_data_full_file_path, skipinitialspace=False,
                              usecols=['Province_State', 'Country_Region', 'Confirmed', 'Deaths'])
+
+        # for naming...
+        last_available_date = date.strftime("%Y-%m-%d")
 
     except OSError as e:
         # print('Note: '+date_str+'.csv was not found ... ' + e.strerror)
@@ -109,7 +116,7 @@ df_deaths = all_data[deaths_columns]
 
 current_date_time = dt.datetime.today()
 
-dt_string = current_date_time.strftime('%Y-%m-%d-%I-%M-%S-%p')
+dt_string = current_date_time.strftime('%Y-%m-%d-%H-%M-%S')
 
-df_confirmed.to_csv(output_dir + 'out-confirmed-' + dt_string + '.csv')
-df_deaths.to_csv(output_dir + 'out-deaths-' + dt_string + '.csv')
+df_confirmed.to_csv(output_dir + 'out-confirmed-' + last_available_date + '-' + dt_string + '.csv')
+df_deaths.to_csv(output_dir + 'out-deaths-' + last_available_date + '-' + dt_string + '.csv')
