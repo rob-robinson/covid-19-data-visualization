@@ -1,19 +1,39 @@
 # CoViD-19 Data Visualization
 
+This repo is my attempt to combine the data from Johns Hopkins in to datasets that I can work with to create data visualizations.
+
+The data repo is maintained by Johns Hopkins University Center for Systems Science and Engineering, and is available here: https://github.com/CSSEGISandData/COVID-19 . 
+
+This data repo must be cloned and up to date in order for this repo to work correctly.
+
+
 #### Running Locally
 
 ```bash
 
-cd covid-19-data-visualization
+# get the data
+git clone https://github.com/CSSEGISandData/COVID-19
+
+# get this repo
+git clone https://github.com/rob-robinson/covid-19-data-visualization.git
+
+cd covid-19-data-visualization/deployment/app_src
 
 # create virtual environment with python 3.x:
-python3 -m venv my_p3
+python3 -m venv covid_testing
 
 # activate the venv:
-source my_p3/bin/activate
+source covid_testing/bin/activate
 
-# make sure you have the libs installed:
+# make sure you have the libs installed in the venv:
 pip install -r requirements.txt
+
+# make modifications to the configuration items in the deployment/app_src/src/app.py file to match your environment.
+
+# Execute the program:
+ 
+python ./src/app.py
+
 
 ```
 
