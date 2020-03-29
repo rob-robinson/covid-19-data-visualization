@@ -1,4 +1,6 @@
 .idea/
 .DS_Store
-/src/my_p3/
-src/src/out.csv
+deployment/app_src/my_p3
+app_src/src/out.csv
+deployment/app_src/output/out-*.csv
+notebooks/.ipynb_checkpoints/*.ipynb
