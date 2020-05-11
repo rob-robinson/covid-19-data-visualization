@@ -8,4 +8,5 @@ source covid_testing/bin/activate
 
 pip install -r requirements.txt
 
+source covid_testing/bin/activate
 python src/app.py 
